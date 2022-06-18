@@ -32,15 +32,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	id := "webauthn-passkeys-demo.herokuapp.com"
 	origin := "https://webauthn-passkeys-demo.herokuapp.com/"
 	if strings.Contains(hostname, "local") {
 		origin = "http://localhost:8080"
+		id = "localhost"
 	}
 
 	var err error
 	webAuthn, err = webauthn.New(&webauthn.Config{
-		RPDisplayName: "Foobar Corp.", // display name for your site
-		RPID:          "localhost",    // generally the domain name for your site
+		RPDisplayName: "Treedays.com", // display name for your site
+		RPID:          id,             // generally the domain name for your site
 		RPOrigin:      origin,
 	})
 
