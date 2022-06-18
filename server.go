@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/duo-labs/webauthn.io/session"
@@ -18,12 +19,32 @@ var sessionStore *session.Store
 var userDB *userdb
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	hostname, e := os.Hostname()
+	scheme := "https"
+
+	if strings.Contains(hostname, "local") {
+		hostname = "localhost"
+		scheme = "http"
+	}
+
+	if e != nil {
+		fmt.Println(e)
+		os.Exit(1)
+	}
+
+	origin := fmt.Sprintf("%s://%s:%s", scheme, hostname, port)
 
 	var err error
 	webAuthn, err = webauthn.New(&webauthn.Config{
 		RPDisplayName: "Foobar Corp.", // display name for your site
 		RPID:          "localhost",    // generally the domain name for your site
-		RPOrigin:      "http://localhost:8080",
+		RPOrigin:      origin,
 	})
 
 	if err != nil {
@@ -49,8 +70,8 @@ func main() {
 
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./")))
 
-	serverAddress := ":8080"
-	log.Println("starting server at", serverAddress)
+	serverAddress := fmt.Sprintf(":%s", port)
+	log.Println("starting server at", origin)
 	log.Fatal(http.ListenAndServe(serverAddress, r))
 
 }
