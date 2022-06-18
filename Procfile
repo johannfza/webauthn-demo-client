@@ -1,1 +1,1 @@
-web: bin/webauthn-demo-client
+web: go run .
