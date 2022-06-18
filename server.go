@@ -26,19 +26,16 @@ func main() {
 	}
 
 	hostname, e := os.Hostname()
-	scheme := "https"
-
-	if strings.Contains(hostname, "local") {
-		hostname = "localhost"
-		scheme = "http"
-	}
 
 	if e != nil {
 		fmt.Println(e)
 		os.Exit(1)
 	}
 
-	origin := fmt.Sprintf("%s://%s:%s", scheme, hostname, port)
+	origin := "https://webauthn-passkeys-demo.herokuapp.com/"
+	if strings.Contains(hostname, "local") {
+		origin = "http://localhost:8080"
+	}
 
 	var err error
 	webAuthn, err = webauthn.New(&webauthn.Config{
