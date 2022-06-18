@@ -1,0 +1,33 @@
+{
+    "publicKey": {
+        "challenge": "FsxBWwUb1jOFRA3ILdkCsPdCZkzohvd3JrCNeDqWpJQ=",
+        "rp": {
+            "name": "Foobar Corp.",
+            "id": "localhost"
+        },
+        "user": {
+            "name": "foo@bar.com",
+            "displayName": "foo",
+            "id": "xOywiL6f3q9EAA=="
+        },
+        "pubKeyCredParams": [
+            {
+                "type": "public-key",
+                "alg": -7
+            },
+            {
+                "type": "public-key",
+                "alg": -35
+            },
+            {
+                "type": "public-key",
+                "alg": -8
+            }
+        ],
+        "authenticatorSelection": {
+            "userVerification": "preferred"
+        },
+        "timeout": 60000,
+        "attestation": "direct"
+    }
+}

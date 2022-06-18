@@ -1,0 +1,15 @@
+{
+    "credentialRequestOptions": {
+        "publicKey": {
+            "challenge": "AZeYdiLc1hGDU0wo9NOZmZG9vu+aPnff2aPFgJEw1HI=",
+            "timeout": 60000,
+            "rpId": "localhost",
+            "allowCredentials": [
+                {
+                    "type": "public-key",
+                    "id": "ABJcniVJwrH45aueEJJsD0LFTGMUxot1sHCOttym/p7rNPF72Zc/NcGo05j3KzDkU5fWELqRz7h9"
+                }
+            ]
+        }
+    }
+}
