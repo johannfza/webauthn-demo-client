@@ -1,4 +1,4 @@
-module webauthn-demo--client
+module webauthn-demo-client
 
 go 1.18
 
