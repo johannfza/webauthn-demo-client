@@ -121,7 +121,7 @@ func BeginRegistration(w http.ResponseWriter, r *http.Request) {
 }
 
 func FinishRegistration(w http.ResponseWriter, r *http.Request) {
-
+	log.Println("FinishRegistration:", r.Body)
 	// get username
 	vars := mux.Vars(r)
 	username := vars["username"]
@@ -192,6 +192,7 @@ func BeginLogin(w http.ResponseWriter, r *http.Request) {
 }
 
 func FinishLogin(w http.ResponseWriter, r *http.Request) {
+	log.Println("FinishLogin:", r.Body)
 
 	// get username
 	vars := mux.Vars(r)
