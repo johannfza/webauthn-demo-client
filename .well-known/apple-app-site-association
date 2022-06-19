@@ -1,13 +1,7 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "33GXC7VWW4.com.johannfza.passkeys.demo",
-                "paths": [
-                    "*"
-                ]
-            }
+    "webcredentials": {
+        "apps": [
+            "33GXC7VWW4.com.johannfza.passkeys.demo"
         ]
     }
 }
